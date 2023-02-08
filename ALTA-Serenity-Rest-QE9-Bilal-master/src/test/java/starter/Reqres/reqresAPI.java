@@ -14,6 +14,8 @@ public class reqresAPI {
 
     public static String GET_LIST_USER = BASE_URL+"/api/users?page={page}";
     public static String POST_CREATE_USER = BASE_URL+"/api/users";
+    public static String PUT_UPDATE_USER = BASE_URL+"/api/users/{id}";
+    public static String DELETE_USER = BASE_URL+"/api/users/{id}";
     @Step("Get List User")
     public void getListUser(int page) {
         SerenityRest.given()
@@ -25,5 +27,19 @@ public class reqresAPI {
         SerenityRest.given()
                 .contentType(ContentType.JSON)
                 .body(json);
+    }
+
+    @Step("Put Update User")
+    public void putUpdateUser(int id, File json){
+        SerenityRest.given()
+                .pathParam("id", id)
+                .contentType(ContentType.JSON)
+                .body(json);
+    }
+
+    @Step("Delete User")
+    public void deleteUser(int id){
+        SerenityRest.given()
+                .pathParam("id", id);
     }
 }

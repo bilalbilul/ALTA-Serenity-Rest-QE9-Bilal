@@ -58,4 +58,32 @@ public class ReqresStepDefinitions {
                 .body("name",equalTo(name))
                 .body("job",equalTo(job));
     }
+
+    @Given("Update user with valid json with parameter id {int}")
+    public void updateUserWithValidJson(int id) {
+        File jsonReq = new File(reqresAPI.DIR+"/src/test/resources/JSON/ReqBody/UsersReqBody.json");
+        ReqresAPI.putUpdateUser(id,jsonReq);
+    }
+
+    @When("Send request put update users")
+    public void sendRequestPutUpdateUsers() {
+            SerenityRest.when().put(reqresAPI.PUT_UPDATE_USER);
+    }
+
+
+    @Given("Delete user with valid id {int}")
+    public void deleteUserWithValidIdId(int id) {
+        ReqresAPI.deleteUser(id);
+    }
+
+    @When("Send request delete users")
+    public void sendRequestDeleteUsers() {
+        SerenityRest.when().delete(reqresAPI.DELETE_USER);
+    }
+
+    @Then("Status code should be {int} no content")
+    public void statusCodeShouldBeIntOK(int delete) {
+        SerenityRest.then().statusCode(delete);
+    }
+
 }
