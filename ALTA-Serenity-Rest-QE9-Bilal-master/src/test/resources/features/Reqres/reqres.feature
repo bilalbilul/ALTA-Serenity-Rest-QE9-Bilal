@@ -1,9 +1,13 @@
 Feature: Reqres API Testing Automation QE Batch 9
-  Scenario: Get list user with valid parameter
-    Given get list users with valid parameter page 2
+  Scenario Outline: Get list user with valid parameter
+    Given get list users with valid parameter page <page>
     When Send request get list users
     Then Status code should be 200 OK
     And Response body page should be 2
+    Examples:
+      | page |
+      | 1    |
+      | 2    |
 
   Scenario: Post create new user
     Given Create new user with valid json
