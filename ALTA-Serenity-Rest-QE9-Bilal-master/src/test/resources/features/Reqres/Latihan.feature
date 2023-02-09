@@ -19,7 +19,7 @@ Feature: Reqres API Testing Automation QE Batch 9
 
   @Latihan
   Scenario Outline: Put update user
-    Given Update user with valid json with parameter id <id>
+    Given Update user with valid json and parameter id <id>
     When Send request put update users
     Then Status code should be 200 OK
     And Response body name should be "Muhammad Bilal" and job is "QE Automation"
@@ -37,6 +37,3 @@ Feature: Reqres API Testing Automation QE Batch 9
       | id |
       | 1  |
       | 2  |
-
-  @Tugas
-  Scenario:

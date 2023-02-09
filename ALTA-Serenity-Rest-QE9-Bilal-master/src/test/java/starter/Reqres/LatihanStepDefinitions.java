@@ -11,7 +11,7 @@ import net.thucydides.core.annotations.Steps;
 
 import static org.hamcrest.Matchers.equalTo;
 
-public class ReqresStepDefinitions {
+public class LatihanStepDefinitions {
     @Steps
     reqresAPI ReqresAPI;
 
@@ -59,7 +59,7 @@ public class ReqresStepDefinitions {
                 .body("job",equalTo(job));
     }
 
-    @Given("Update user with valid json with parameter id {int}")
+    @Given("Update user with valid json and parameter id {int}")
     public void updateUserWithValidJson(int id) {
         File jsonReq = new File(reqresAPI.DIR+"/src/test/resources/JSON/ReqBody/UsersReqBody.json");
         ReqresAPI.putUpdateUser(id,jsonReq);
