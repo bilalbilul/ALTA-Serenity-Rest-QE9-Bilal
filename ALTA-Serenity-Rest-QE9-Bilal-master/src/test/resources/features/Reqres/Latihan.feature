@@ -11,6 +11,13 @@ Feature: Reqres API Testing Automation QE Batch 9
       | 2    |
 
   @Latihan
+  Scenario: Get list user with json schema
+    Given get list users with valid parameter page 2
+    When Send request get list users
+    Then Status code should be 200 OK
+    And Validate get list user json schema
+
+  @Latihan
   Scenario: Post create new user
     Given Create new user with valid json
     When Send request post create users
